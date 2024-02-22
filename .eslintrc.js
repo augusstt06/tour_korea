@@ -75,7 +75,12 @@ module.exports = {
     ],
     'no-console': ['error'],
   },
-  ignorePatterns: ['.eslintrc.js', 'inputValidate.tsx', '*.d.ts'],
+  ignorePatterns: [
+    '.eslintrc.js',
+    'inputValidate.tsx',
+    '*.d.ts',
+    'next.config.mjs',
+  ],
   settings: {
     react: {
       version: 'detect',
