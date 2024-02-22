@@ -14,10 +14,13 @@
 ### 지도를 사용한 관광지 위치 표시
 
 - 최초 어플리케이션 진입시 대한민국 전체 지도 표시
-  ![전체](public/readme/image-2.png)
+
+  <img src="public/readme/image-2.png" alt="alt text" width="300" height="350">
+  )
 
 - 특정 지역 클릭시 해당 지역의 상세 지도 표시 및 해당 지역 관광지 리스트업
-  ![alt text](public/readme/image-3.png)
+
+  <img src="public/readme/image-3.png" alt="alt text" width="300" height="200">
 
   - 관광지 리스트 클릭시 해당 관광지의 위치를 표시.
     - 관광지 리스트 구성
@@ -25,5 +28,3 @@
       - 사진
       - 전화번호
       - 주소
-
--
