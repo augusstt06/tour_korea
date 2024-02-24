@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { ThemeProvider } from 'next-themes'
+import './globals.css'
 
 export default function RootLayout({
   children,
@@ -11,9 +11,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body>
-        <ThemeProvider attribute="class">{children}</ThemeProvider>
-      </body>
+      <body className="bg-#fff">{children}</body>
     </html>
   )
 }
