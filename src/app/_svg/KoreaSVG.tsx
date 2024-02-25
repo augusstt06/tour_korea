@@ -1,5 +1,5 @@
-import './korea.css'
-export default function Korea() {
+import './svg.css'
+export default function KoreaSvg() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -9,5 +9,5 @@ path {
 path:hover {
   fill: #e2d4ea;
   cursor: pointer;
-  transition: all ease 1s;
+  transition: all ease 1.2s;
 }

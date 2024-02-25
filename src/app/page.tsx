@@ -4,8 +4,8 @@ import { useState } from 'react'
 
 import { Outfit } from 'next/font/google'
 
-import Korea from './_map/Korea'
 import './globals.css'
+import Map from './_component/Map'
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -19,14 +19,9 @@ export default function Home() {
   return (
     <main id="main" className="h-screen">
       {showMap ? (
-        <section
-          id="map"
-          className="flex justify-center items-center h-screen backdrop-blur-sm	"
-        >
-          <Korea />
-        </section>
+        <Map />
       ) : (
-        <section className="flex flex-col absolute lg:top-1/3 lg:left-40 lg:transform-none lg:text-left top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center space-y-4">
+        <section className="flex flex-col absolute lg:top-1/3 lg:left-40 lg:transform-none lg:text-left lg:items-start items-center text-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 space-y-4 transition-all duration-1000 ease-in-out">
           <h1 className={`text-white text-4xl ${outfit.className}`}>
             Tour in Korea
           </h1>
