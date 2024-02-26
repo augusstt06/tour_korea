@@ -17,7 +17,7 @@ import {
   SOUTH_JEOLLA,
   ULSAN,
 } from '../_constant'
-import { type KoreaSvgProps } from '../_type/map'
+import { type KoreaSvgProps } from '../_type'
 import './svg.css'
 export default function KoreaSvg(props: KoreaSvgProps) {
   const { clickPlace } = props

@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { Outfit } from 'next/font/google'
 
 import './globals.css'
-import Map from './_component/Map'
+import Map from './_component/map/Map'
 
 const outfit = Outfit({
   subsets: ['latin'],
