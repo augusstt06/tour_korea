@@ -1,3 +1,10 @@
+export const API_KEY = process.env.NEXT_PUBLIC_API_KEY!
+
+export const TOUR = 'tour'
+export const WIN = 'WIN'
+
+export const GET = 'GET'
+
 export const BUSAN = '부산'
 export const DAEGU = '대구'
 export const ULSAN = '울산'

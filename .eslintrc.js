@@ -30,6 +30,7 @@ module.exports = {
   rules: {
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     '@typescript-eslint/return-await': 'off',

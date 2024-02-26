@@ -1,0 +1,1 @@
+export const API_ROUTE_KEYWORD = process.env.NEXT_PUBLIC_API_ROUTE_KEYWORD!

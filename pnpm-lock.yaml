@@ -8,6 +8,9 @@ dependencies:
   '@svg-maps/south-korea':
     specifier: ^1.0.1
     version: 1.0.1
+  '@tanstack/react-query':
+    specifier: ^5.24.1
+    version: 5.24.1(react@18.2.0)
   next:
     specifier: 14.1.0
     version: 14.1.0(@babel/core@7.23.9)(react-dom@18.2.0)(react@18.2.0)
@@ -28,6 +31,12 @@ devDependencies:
   '@svgr/webpack':
     specifier: ^8.1.0
     version: 8.1.0(typescript@5.3.3)
+  '@tanstack/eslint-plugin-query':
+    specifier: ^5.20.1
+    version: 5.20.1(eslint@8.56.0)(typescript@5.3.3)
+  '@tanstack/react-query-devtools':
+    specifier: ^5.24.1
+    version: 5.24.1(@tanstack/react-query@5.24.1)(react@18.2.0)
   '@types/node':
     specifier: ^20
     version: 20.11.17
@@ -85,6 +94,9 @@ devDependencies:
   prettier:
     specifier: ^3.2.5
     version: 3.2.5
+  react-query-devtools:
+    specifier: ^2.6.3
+    version: 2.6.3(react-query@2.26.4)(react@18.2.0)
   tailwindcss:
     specifier: ^3.4.1
     version: 3.4.1
@@ -1756,6 +1768,44 @@ packages:
       tslib: 2.6.2
     dev: false
 
+  /@tanstack/eslint-plugin-query@5.20.1(eslint@8.56.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-oIp7Wh90KHOm1FKCvcv87fiD2H96xo/crFrlhbvqBzR2f0tMEGOK/ANKMGNFQprd6BT6lyZhQPlOEkFdezsjIg==}
+    peerDependencies:
+      eslint: ^8.0.0
+    dependencies:
+      '@typescript-eslint/utils': 6.21.0(eslint@8.56.0)(typescript@5.3.3)
+      eslint: 8.56.0
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+    dev: true
+
+  /@tanstack/query-core@5.24.1:
+    resolution: {integrity: sha512-DZ6Nx9p7BhjkG50ayJ+MKPgff+lMeol7QYXkvuU5jr2ryW/4ok5eanaS9W5eooA4xN0A/GPHdLGOZGzArgf5Cg==}
+
+  /@tanstack/query-devtools@5.24.0:
+    resolution: {integrity: sha512-pThim455t69zrZaQKa7IRkEIK8UBTS+gHVAdNfhO72Xh4rWpMc63ovRje5/n6iw63+d6QiJzVadsJVdPoodSeQ==}
+    dev: true
+
+  /@tanstack/react-query-devtools@5.24.1(@tanstack/react-query@5.24.1)(react@18.2.0):
+    resolution: {integrity: sha512-qa4SEugN+EF8JJXcpsM9Lu05HfUv5cvHvLuB0uw/81eJZyNHFdtHFBi5RLCgpBrOyVMDfH8UQ3VBMqXzFKV68A==}
+    peerDependencies:
+      '@tanstack/react-query': ^5.24.1
+      react: ^18.0.0
+    dependencies:
+      '@tanstack/query-devtools': 5.24.0
+      '@tanstack/react-query': 5.24.1(react@18.2.0)
+      react: 18.2.0
+    dev: true
+
+  /@tanstack/react-query@5.24.1(react@18.2.0):
+    resolution: {integrity: sha512-4+09JEdO4d6+Gc8Y/g2M/MuxDK5IY0QV8+2wL2304wPKJgJ54cBbULd3nciJ5uvh/as8rrxx6s0mtIwpRuGd1g==}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      '@tanstack/query-core': 5.24.1
+      react: 18.2.0
+
   /@trysound/sax@0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
@@ -1960,6 +2010,25 @@ packages:
       typescript: 5.3.3
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@typescript-eslint/utils@6.21.0(eslint@8.56.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-NfWVaC8HP9T8cbKQxHcsJBY5YE1O33+jpMwN45qzWWaPDZgLIbo12toGMWnmhvCpd3sIxkpDw3Wv1B3dYrbDQQ==}
+    engines: {node: ^16.0.0 || >=18.0.0}
+    peerDependencies:
+      eslint: ^7.0.0 || ^8.0.0
+    dependencies:
+      '@eslint-community/eslint-utils': 4.4.0(eslint@8.56.0)
+      '@types/json-schema': 7.0.15
+      '@types/semver': 7.5.7
+      '@typescript-eslint/scope-manager': 6.21.0
+      '@typescript-eslint/types': 6.21.0
+      '@typescript-eslint/typescript-estree': 6.21.0(typescript@5.3.3)
+      eslint: 8.56.0
+      semver: 7.6.0
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
     dev: true
 
   /@typescript-eslint/utils@7.0.1(eslint@8.56.0)(typescript@5.3.3):
@@ -4028,6 +4097,13 @@ packages:
       yallist: 4.0.0
     dev: true
 
+  /match-sorter@4.2.1:
+    resolution: {integrity: sha512-s+3h9TiZU9U1pWhIERHf8/f4LmBN6IXaRgo2CI17+XGByGS1GvG5VvXK9pcGyCjGe3WM3mSYRC3ipGrd5UEVgw==}
+    dependencies:
+      '@babel/runtime': 7.23.9
+      remove-accents: 0.4.2
+    dev: true
+
   /mdn-data@2.0.28:
     resolution: {integrity: sha512-aylIc7Z9y4yzHYAJNuESG3hfhC+0Ibp/MAMiaOZgNv4pmEdFyfZhhhny4MNiAfWdBQ1RQ2mfDWmM1x8SvGyp8g==}
     dev: true
@@ -4505,7 +4581,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
-    dev: false
 
   /react-icons@5.0.1(react@18.2.0):
     resolution: {integrity: sha512-WqLZJ4bLzlhmsvme6iFdgO8gfZP17rfjYEJ2m9RsZjZ+cc4k1hTzknEz63YS1MeT50kVzoa1Nz36f4BEx+Wigw==}
@@ -4519,12 +4594,39 @@ packages:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: true
 
+  /react-query-devtools@2.6.3(react-query@2.26.4)(react@18.2.0):
+    resolution: {integrity: sha512-pSvWq5Q8zgIP7QbF0+4BerCHLaLn5HPzce7sIXYqz4XEizcYJHkJtcrAwn6bUkCu5JmAt1Y7fViQtZwOIG2SYA==}
+    peerDependencies:
+      react: ^16.6.3 || ^17.0.0
+      react-query: ^2.0.0
+    dependencies:
+      match-sorter: 4.2.1
+      react: 18.2.0
+      react-query: 2.26.4(react-dom@18.2.0)(react@18.2.0)
+    dev: true
+
+  /react-query@2.26.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-sXGG0gh1ah11AcfptYOCRpGDoYMnssq6riQUpQaLSM2EOodVkexp3zNLk1MFDgfRGuXQst40Tnu17oNwni66aA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.23.9
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: true
+
   /react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
@@ -4600,6 +4702,10 @@ packages:
     hasBin: true
     dependencies:
       jsesc: 0.5.0
+    dev: true
+
+  /remove-accents@0.4.2:
+    resolution: {integrity: sha512-7pXIJqJOq5tFgG1A2Zxti3Ht8jJF337m4sowbuHsW30ZnkQFnDzy9qBNhgzX8ZLW4+UBcXiiR7SwR6pokHsxiA==}
     dev: true
 
   /resolve-from@4.0.0:
@@ -4682,7 +4788,6 @@ packages:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
