@@ -5,8 +5,8 @@ export default function Gangwon() {
       version="1.2"
       baseProfile="tiny"
       width="800"
-      height="699"
-      viewBox="0 0 800 699"
+      height="499"
+      viewBox="100 0 800 699"
       strokeLinecap="round"
       strokeLinejoin="round"
     >

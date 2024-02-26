@@ -5,7 +5,7 @@ export default function Gwangju() {
       version="1.2"
       baseProfile="tiny"
       width="500"
-      height="437"
+      height="400"
       viewBox="0 0 800 537"
       strokeLinecap="round"
       strokeLinejoin="round"

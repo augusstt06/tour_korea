@@ -5,7 +5,7 @@ export default function Seoul() {
       version="1.2"
       width="800"
       height="505"
-      viewBox="50 0 800 655"
+      viewBox="100 0 800 655"
       strokeLinecap="round"
       strokeLinejoin="round"
     >

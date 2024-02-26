@@ -4,8 +4,8 @@ export default function Daejeon() {
       xmlns="http://www.w3.org/2000/svg"
       version="1.2"
       width="700"
-      height="700"
-      viewBox="0 0 800 1001"
+      height="600"
+      viewBox="100 0 800 1001"
       strokeLinecap="round"
       strokeLinejoin="round"
     >
