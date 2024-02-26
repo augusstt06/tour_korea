@@ -1,6 +1,6 @@
 import '../css/index.css'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { useQuery } from '@tanstack/react-query'
 import { IoClose } from 'react-icons/io5'
@@ -18,10 +18,12 @@ export default function Map() {
   const [currentPlaceDo, setCurrentPlaceDo] = useState<string>('')
   const clickPlace = (place: string) => {
     setCurrentPlaceDo(place)
-    void refetch()
   }
 
-  const { refetch } = useQuery({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [placeImg, setPlaceImg] = useState<string[]>([])
+
+  const { data, refetch } = useQuery({
     queryKey: ['search'],
     queryFn: async () => {
       const res = await moduleGetFetch({
@@ -31,7 +33,7 @@ export default function Map() {
           MobileOS: WIN,
           MobileApp: TOUR,
           _type: 'json',
-          keyword: '서울',
+          keyword: currentPlaceDo,
           serviceKey: API_KEY,
         },
         fetchUrl: API_ROUTE_KEYWORD,
@@ -40,6 +42,19 @@ export default function Map() {
     },
     enabled: false,
   })
+
+  useEffect(() => {
+    if (currentPlaceDo !== '') {
+      void refetch()
+    }
+  }, [currentPlaceDo])
+
+  useEffect(() => {
+    if (data !== undefined) {
+      const imgs = data?.response.body.items.item.map((item) => item.firstimage)
+      setPlaceImg(imgs)
+    }
+  }, [data])
 
   return (
     <>
