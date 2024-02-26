@@ -14,6 +14,7 @@ export default function Map() {
   const clickPlace = (place: string) => {
     setCurrentPlaceDo(place)
   }
+
   return (
     <>
       {currentPlaceDo === '' ? (
@@ -26,12 +27,12 @@ export default function Map() {
       ) : (
         <section
           id="map"
-          className="flex justify-center items-center h-screen backdrop-blur-sm	"
+          className="flex justify-left items-center h-screen backdrop-blur-sm	"
         >
           <DetailMap currentPlaceDo={currentPlaceDo} />
           <div
             id="map-description"
-            className="bg-red-400 bg-opacity-40 absolute top-1/3 right-16 w-1/5 rounded-xl text-center"
+            className="bg-red-400 bg-opacity-40 absolute top-1/4 right-16 w-2/5 rounded-xl text-center"
           >
             <div className="flex items-center justify-center space-x-4">
               <p>{currentPlaceDo}</p>

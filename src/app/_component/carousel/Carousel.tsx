@@ -32,7 +32,7 @@ export default function Carousel() {
       <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
         {slides.map((data, index) => (
           <div
-            className={`duration-700 ease-in-out ${index === currentSlide ? 'block' : 'hidden'}`}
+            className={`transition-opacity duration-700 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
             data-carousel-item
             key={index}
           >
@@ -46,7 +46,7 @@ export default function Carousel() {
         ))}
       </div>
 
-      <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+      <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse bg-red-100 bg-opacity-30 p-3 rounded-xl">
         {slides.map((_, index) => (
           <button
             key={index}
