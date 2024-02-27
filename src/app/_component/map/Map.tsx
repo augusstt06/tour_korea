@@ -69,10 +69,12 @@ export default function Map() {
           id="map"
           className="flex justify-left items-center h-screen backdrop-blur-sm	"
         >
-          <DetailMap currentPlaceDo={currentPlaceDo} />
+          <div className="lg:inline hidden">
+            <DetailMap currentPlaceDo={currentPlaceDo} />
+          </div>
           <div
             id="map-description"
-            className="bg-indigo-400 bg-opacity-40 absolute top-1/4 right-16 w-1/3 rounded-xl text-center text-white"
+            className="bg-indigo-400 bg-opacity-40 absolute lg:top-1/4 top-1/2 lg:right-16 right-1/2 transform lg:transform-none lg:translate-x-0 translate-x-1/2 -translate-y-1/2 lg:w-1/3 md:w-1/2 w-2/3 rounded-xl text-center text-white"
           >
             <div className="flex items-center justify-center space-x-4 p-3">
               <p className="text-xl">{currentPlaceDo}</p>

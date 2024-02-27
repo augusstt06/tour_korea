@@ -59,7 +59,7 @@ export default function Carousel(props: CarouselProps) {
           ))}
         </div>
 
-        <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse bg-red-100 bg-opacity-30 p-3 rounded-xl">
+        <div className=" absolute z-30 hidden md:flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse bg-red-100 bg-opacity-30 p-3 rounded-xl">
           {place.map((_, index) => (
             <button
               key={index}

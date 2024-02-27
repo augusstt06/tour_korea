@@ -42,6 +42,7 @@ export type SuccessResponse = {
     }
   }
 }
+
 export type KoreaSvgProps = {
   clickPlace: (place: string) => void
 }
