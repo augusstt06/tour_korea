@@ -11,8 +11,10 @@ import { type CarouselProps } from '@/app/_type'
 
 export default function Carousel(props: CarouselProps) {
   const { place } = props
+
   const { setDetailPlace } = usePlaceStore()
-  const imgList = place.map((data) => data.firstimage)
+  const imgList =
+    place !== undefined ? place.map((data) => data.firstimage) : []
   const [currentSlide, setCurrentSlide] = useState<number>(0)
   const goToSlide = (slideIndex: number) => {
     setCurrentSlide(slideIndex)

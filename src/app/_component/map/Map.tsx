@@ -72,7 +72,7 @@ export default function Map() {
           <DetailMap currentPlaceDo={currentPlaceDo} />
           <div
             id="map-description"
-            className="bg-indigo-400 bg-opacity-40 absolute top-1/4 right-16 w-2/5 rounded-xl text-center text-white"
+            className="bg-indigo-400 bg-opacity-40 absolute top-1/4 right-16 w-1/3 rounded-xl text-center text-white"
           >
             <div className="flex items-center justify-center space-x-4 p-3">
               <p className="text-xl">{currentPlaceDo}</p>
