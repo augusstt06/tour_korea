@@ -12,9 +12,9 @@ export default function SouthJeolla() {
       xmlns="http://www.w3.org/2000/svg"
       version="1.2"
       baseProfile="tiny"
-      width="900"
-      height="818"
-      viewBox="150 0 800 518"
+      width="700"
+      height="618"
+      viewBox="50 0 800 518"
       strokeLinecap="round"
       strokeLinejoin="round"
     >

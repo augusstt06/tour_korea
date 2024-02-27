@@ -69,7 +69,7 @@ export default function Map() {
           id="map"
           className="flex justify-left items-center h-screen backdrop-blur-sm	"
         >
-          <div className="lg:inline hidden">
+          <div className="lg:inline hidden bg-red-100 relative">
             <DetailMap currentPlaceDo={currentPlaceDo} />
           </div>
           <div

@@ -10,9 +10,9 @@ export default function Gyeonggi() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={780}
-      height={780}
-      viewBox="100 0 1000 1100"
+      width={680}
+      height={680}
+      viewBox="0 0 900 1100"
     >
       <g id="경기도_시군구_경계">
         <path

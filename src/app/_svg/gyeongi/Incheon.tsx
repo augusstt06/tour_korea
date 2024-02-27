@@ -12,9 +12,9 @@ export default function Incheon() {
       xmlns="http://www.w3.org/2000/svg"
       version="1.2"
       baseProfile="tiny"
-      width="1200"
-      height="1201"
-      viewBox="250 0 800 501"
+      width="600"
+      height="501"
+      viewBox="50 0 800 501"
       strokeLinecap="round"
       strokeLinejoin="round"
     >
