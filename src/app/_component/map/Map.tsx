@@ -12,6 +12,7 @@ import DetailMap from './DetailMap'
 
 import { API_KEY, TOUR, WIN } from '@/app/_constant'
 import { API_ROUTE_KEYWORD } from '@/app/_constant/routes'
+import { type Item } from '@/app/_type'
 import { moduleGetFetch } from '@/app/_utils/fetch'
 
 export default function Map() {
@@ -20,8 +21,7 @@ export default function Map() {
     setCurrentPlaceDo(place)
   }
 
-  const [place, setPlace] = useState<Array<{ img: string; addr: string }>>([])
-  // const [currentPlace, setCurrentPlace] = useState<string>('')
+  const [place, setPlace] = useState<Item>([])
 
   const { data, refetch } = useQuery({
     queryKey: ['search'],
@@ -51,13 +51,10 @@ export default function Map() {
 
   useEffect(() => {
     if (data !== undefined) {
-      const imgs = data?.response.body.items.item.map((item) => ({
-        img: item.firstimage,
-        addr: item.addr1,
-      }))
-      setPlace(imgs)
+      setPlace(data?.response.body.items.item)
     }
   }, [data])
+
   return (
     <>
       {currentPlaceDo === '' ? (
@@ -75,13 +72,13 @@ export default function Map() {
           <DetailMap currentPlaceDo={currentPlaceDo} />
           <div
             id="map-description"
-            className="bg-red-400 bg-opacity-40 absolute top-1/4 right-16 w-2/5 rounded-xl text-center"
+            className="bg-indigo-400 bg-opacity-40 absolute top-1/4 right-16 w-2/5 rounded-xl text-center text-white"
           >
-            <div className="flex items-center justify-center space-x-4">
-              <p>{currentPlaceDo}</p>
+            <div className="flex items-center justify-center space-x-4 p-3">
+              <p className="text-xl">{currentPlaceDo}</p>
               <IoClose
                 id="reset"
-                className="font-bold cursor-pointer transition ease-in-out duration-500"
+                className="font-bold w-8 h-8 cursor-pointer transition ease-in-out duration-500"
                 onClick={() => {
                   setCurrentPlaceDo('')
                 }}

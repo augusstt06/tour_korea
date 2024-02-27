@@ -3,6 +3,28 @@ export type ModuleGetFetchProps = {
   fetchUrl?: string
   header?: Record<string, string>
 }
+export type Item = Array<{
+  addr1: string
+  addr2: string
+  areacode: string
+  booktour: string
+  cat1: string
+  cat2: string
+  cat3: string
+  contentid: string
+  contenttypeid: string
+  createdtime: string
+  firstimage: string
+  firstimage2: string
+  cpyrhtDivCd: string
+  mapx: string
+  mapy: string
+  mlevel: string
+  modifiedtime: string
+  sigungucode: string
+  tel: string
+  title: string
+}>
 
 export type SuccessResponse = {
   response: {
@@ -12,28 +34,7 @@ export type SuccessResponse = {
     }
     body: {
       items: {
-        item: Array<{
-          addr1: string
-          addr2: string
-          areacode: string
-          booktour: string
-          cat1: string
-          cat2: string
-          cat3: string
-          contentid: string
-          contenttypeid: string
-          createdtime: string
-          firstimage: string
-          firstimage2: string
-          cpyrhtDivCd: string
-          mapx: string
-          mapy: string
-          mlevel: string
-          modifiedtime: string
-          sigungucode: string
-          tel: string
-          title: string
-        }>
+        item: Item
       }
       numOfRows: number
       pageNo: number
@@ -49,5 +50,29 @@ export type DetailMapProps = {
 }
 
 export type CarouselProps = {
-  place: Array<{ img: string; addr: string }>
+  place: Item
+}
+export type DetailProps = {
+  place: {
+    addr1: string
+    addr2: string
+    areacode: string
+    booktour: string
+    cat1: string
+    cat2: string
+    cat3: string
+    contentid: string
+    contenttypeid: string
+    createdtime: string
+    firstimage: string
+    firstimage2: string
+    cpyrhtDivCd: string
+    mapx: string
+    mapy: string
+    mlevel: string
+    modifiedtime: string
+    sigungucode: string
+    tel: string
+    title: string
+  }
 }
