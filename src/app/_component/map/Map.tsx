@@ -20,7 +20,8 @@ export default function Map() {
     setCurrentPlaceDo(place)
   }
 
-  const [placeImg, setPlaceImg] = useState<string[]>([])
+  const [place, setPlace] = useState<Array<{ img: string; addr: string }>>([])
+  // const [currentPlace, setCurrentPlace] = useState<string>('')
 
   const { data, refetch } = useQuery({
     queryKey: ['search'],
@@ -50,8 +51,11 @@ export default function Map() {
 
   useEffect(() => {
     if (data !== undefined) {
-      const imgs = data?.response.body.items.item.map((item) => item.firstimage)
-      setPlaceImg(imgs)
+      const imgs = data?.response.body.items.item.map((item) => ({
+        img: item.firstimage,
+        addr: item.addr1,
+      }))
+      setPlace(imgs)
     }
   }, [data])
   return (
@@ -83,7 +87,7 @@ export default function Map() {
                 }}
               />
             </div>
-            <Carousel placeImg={placeImg} />
+            <Carousel place={place} />
           </div>
         </section>
       )}

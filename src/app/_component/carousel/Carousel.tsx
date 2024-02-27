@@ -1,13 +1,16 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Image from 'next/image'
 
+import usePlaceStore from '@/app/_store'
 import { type CarouselProps } from '@/app/_type'
 
 export default function Carousel(props: CarouselProps) {
-  const { placeImg } = props
+  const { place } = props
+  const { setDetailPlace } = usePlaceStore()
+  const imgList = place.map((data) => data.img)
   const [currentSlide, setCurrentSlide] = useState<number>(0)
   const goToSlide = (slideIndex: number) => {
     setCurrentSlide(slideIndex)
@@ -15,15 +18,20 @@ export default function Carousel(props: CarouselProps) {
 
   const goToPrevSlide = () => {
     setCurrentSlide((prevSlide) =>
-      prevSlide === 0 ? placeImg.length - 1 : prevSlide - 1,
+      prevSlide === 0 ? imgList.length - 1 : prevSlide - 1,
     )
   }
 
   const goToNextSlide = () => {
     setCurrentSlide((prevSlide) =>
-      prevSlide === placeImg.length - 1 ? 0 : prevSlide + 1,
+      prevSlide === imgList.length - 1 ? 0 : prevSlide + 1,
     )
   }
+
+  useEffect(() => {
+    if (place?.[currentSlide] !== undefined)
+      setDetailPlace(place[currentSlide].addr.split(' ').slice(1, 2)[0])
+  }, [currentSlide, place])
 
   return (
     <div
@@ -32,11 +40,11 @@ export default function Carousel(props: CarouselProps) {
       data-carousel="slide"
     >
       <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-        {placeImg.map((data, index) => (
+        {place.map((data, index) => (
           <Image
-            src={data !== '' ? `${data}` : '/no-img.jpeg'}
+            src={data.img !== '' ? `${data.img}` : '/no-img.jpeg'}
             className={`absolute block w-full transition-opacity duration-700 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
-            alt={data}
+            alt={data.img}
             fill
             sizes="(min-width: 640px)"
             key={index}
@@ -45,7 +53,7 @@ export default function Carousel(props: CarouselProps) {
       </div>
 
       <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse bg-red-100 bg-opacity-30 p-3 rounded-xl">
-        {placeImg.map((_, index) => (
+        {place.map((_, index) => (
           <button
             key={index}
             type="button"

@@ -49,5 +49,5 @@ export type DetailMapProps = {
 }
 
 export type CarouselProps = {
-  placeImg: string[]
+  place: Array<{ img: string; addr: string }>
 }
