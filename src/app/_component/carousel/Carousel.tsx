@@ -4,22 +4,24 @@ import { useState } from 'react'
 
 import Image from 'next/image'
 
-export default function Carousel() {
+import { type CarouselProps } from '@/app/_type'
+
+export default function Carousel(props: CarouselProps) {
+  const { placeImg } = props
   const [currentSlide, setCurrentSlide] = useState<number>(0)
-  const slides = ['/tower.jpg', '/readme/image-3.png']
   const goToSlide = (slideIndex: number) => {
     setCurrentSlide(slideIndex)
   }
 
   const goToPrevSlide = () => {
     setCurrentSlide((prevSlide) =>
-      prevSlide === 0 ? slides.length - 1 : prevSlide - 1,
+      prevSlide === 0 ? placeImg.length - 1 : prevSlide - 1,
     )
   }
 
   const goToNextSlide = () => {
     setCurrentSlide((prevSlide) =>
-      prevSlide === slides.length - 1 ? 0 : prevSlide + 1,
+      prevSlide === placeImg.length - 1 ? 0 : prevSlide + 1,
     )
   }
 
@@ -30,24 +32,20 @@ export default function Carousel() {
       data-carousel="slide"
     >
       <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-        {slides.map((data, index) => (
-          <div
-            className={`transition-opacity duration-700 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
-            data-carousel-item
+        {placeImg.map((data, index) => (
+          <Image
+            src={data !== '' ? `${data}` : '/no-img.jpeg'}
+            className={`absolute block w-full transition-opacity duration-700 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+            alt={data}
+            fill
+            sizes="(min-width: 640px)"
             key={index}
-          >
-            <Image
-              src={data}
-              className="absolute block w-full "
-              alt="..."
-              fill
-            />
-          </div>
+          />
         ))}
       </div>
 
       <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse bg-red-100 bg-opacity-30 p-3 rounded-xl">
-        {slides.map((_, index) => (
+        {placeImg.map((_, index) => (
           <button
             key={index}
             type="button"

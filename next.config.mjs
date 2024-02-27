@@ -8,6 +8,9 @@ const nextConfig = {
 
     return config
   },
+  images: {
+    domains: ['tong.visitkorea.or.kr'],
+  },
 }
 
 export default nextConfig

@@ -47,3 +47,7 @@ export type KoreaSvgProps = {
 export type DetailMapProps = {
   currentPlaceDo: string
 }
+
+export type CarouselProps = {
+  placeImg: string[]
+}

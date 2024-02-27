@@ -20,7 +20,6 @@ export default function Map() {
     setCurrentPlaceDo(place)
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [placeImg, setPlaceImg] = useState<string[]>([])
 
   const { data, refetch } = useQuery({
@@ -55,7 +54,6 @@ export default function Map() {
       setPlaceImg(imgs)
     }
   }, [data])
-
   return (
     <>
       {currentPlaceDo === '' ? (
@@ -85,7 +83,7 @@ export default function Map() {
                 }}
               />
             </div>
-            <Carousel />
+            <Carousel placeImg={placeImg} />
           </div>
         </section>
       )}
