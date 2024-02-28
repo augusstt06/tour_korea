@@ -28,7 +28,7 @@ export default function Map() {
     queryFn: async () => {
       const res = await moduleGetFetch({
         params: {
-          numOfRows: 10,
+          numOfRows: 20,
           pageNo: 1,
           MobileOS: WIN,
           MobileApp: TOUR,
@@ -69,7 +69,7 @@ export default function Map() {
           id="map"
           className="flex justify-left items-center h-screen backdrop-blur-sm	"
         >
-          <div className="lg:inline hidden bg-red-100 relative">
+          <div className="lg:inline hidden relative">
             <DetailMap currentPlaceDo={currentPlaceDo} />
           </div>
           <div
