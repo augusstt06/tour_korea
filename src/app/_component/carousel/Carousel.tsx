@@ -16,9 +16,9 @@ export default function Carousel(props: CarouselProps) {
   const imgList =
     place !== undefined ? place.map((data) => data.firstimage) : []
   const [currentSlide, setCurrentSlide] = useState<number>(0)
-  const goToSlide = (slideIndex: number) => {
-    setCurrentSlide(slideIndex)
-  }
+  // const goToSlide = (slideIndex: number) => {
+  //   setCurrentSlide(slideIndex)
+  // }
 
   const goToPrevSlide = () => {
     setCurrentSlide((prevSlide) =>
@@ -59,7 +59,7 @@ export default function Carousel(props: CarouselProps) {
           ))}
         </div>
 
-        <div className=" absolute z-30 hidden md:flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse bg-red-100 bg-opacity-30 p-3 rounded-xl">
+        {/* <div className=" absolute z-30 hidden md:flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse bg-red-100 bg-opacity-30 p-3 rounded-xl">
           {place.map((_, index) => (
             <button
               key={index}
@@ -72,7 +72,7 @@ export default function Carousel(props: CarouselProps) {
               }}
             ></button>
           ))}
-        </div>
+        </div> */}
         <button
           type="button"
           className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"

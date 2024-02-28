@@ -3,6 +3,7 @@ export const API_KEY = process.env.NEXT_PUBLIC_API_KEY!
 export const TOUR = 'tour'
 export const WIN = 'WIN'
 
+export const JSON = 'json'
 export const GET = 'GET'
 
 export const BUSAN = '부산'

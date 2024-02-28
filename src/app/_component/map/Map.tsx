@@ -10,7 +10,7 @@ import Carousel from '../carousel/Carousel'
 
 import DetailMap from './DetailMap'
 
-import { API_KEY, TOUR, WIN } from '@/app/_constant'
+import { API_KEY, JSON, TOUR, WIN } from '@/app/_constant'
 import { API_ROUTE_KEYWORD } from '@/app/_constant/routes'
 import { type Item } from '@/app/_type'
 import { moduleGetFetch } from '@/app/_utils/fetch'
@@ -32,7 +32,7 @@ export default function Map() {
           pageNo: 1,
           MobileOS: WIN,
           MobileApp: TOUR,
-          _type: 'json',
+          _type: JSON,
           keyword: currentPlaceDo,
           serviceKey: API_KEY,
         },
