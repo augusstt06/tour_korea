@@ -1,5 +1,7 @@
+/* Map.tsx */
+
 #reset:hover {
-  transform: rotate(90deg) scale(1.3);
+  transform: rotate(90deg);
 }
 
 @keyframes mapEffect {
@@ -16,4 +18,10 @@
 }
 #map-description {
   animation: 0.7s ease-in-out mapEffect;
+}
+
+/* Detail.tsx */
+
+summary {
+  list-style-type: '📌 ';
 }

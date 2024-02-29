@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 
 import Image from 'next/image'
 
-import Card from '../detail/Card'
+import Detail from '../detail/Detail'
 
 import usePlaceStore from '@/app/_store'
 import { type CarouselProps } from '@/app/_type'
@@ -124,7 +124,7 @@ export default function Carousel(props: CarouselProps) {
           </span>
         </button>
       </div>
-      <Card place={place[currentSlide]} />
+      <Detail place={place[currentSlide]} />
     </>
   )
 }
