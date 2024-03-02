@@ -65,16 +65,16 @@ export default function Map() {
       {currentPlaceDo === '' ? (
         <section
           id="map"
-          className="flex justify-center items-center h-screen backdrop-blur-sm	"
+          className="flex justify-center items-center h-screen backdrop-blur-md"
         >
           <KoreaSvg clickPlace={clickPlace} />
         </section>
       ) : (
         <section
           id="map"
-          className="flex justify-left items-center h-screen backdrop-blur-sm	"
+          className="flex justify-left items-center h-screen backdrop-blur-md"
         >
-          <div className="lg:inline hidden relative">
+          <div className="lg:inline hidden relative" id="detail-map">
             <DetailMap currentPlaceDo={currentPlaceDo} />
           </div>
           <div

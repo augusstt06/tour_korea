@@ -16,6 +16,9 @@
 #map {
   animation: 0.7s ease-in-out mapEffect;
 }
+#detail-map {
+  animation: 0.7s ease-in-out mapEffect;
+}
 #map-description {
   animation: 0.7s ease-in-out mapEffect;
 }
