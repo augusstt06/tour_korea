@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { animated, useSpring } from '@react-spring/web'
+import { animated, useTransition } from '@react-spring/web'
 
 import Loading from '../loading/Loading'
 
@@ -10,21 +10,36 @@ export default function Detail(props: DetailProps) {
   const { place } = props
   const [isDetailOpen, setDetailOpen] = useState<boolean>(false)
 
-  const animateStyle = useSpring({
-    height: isDetailOpen ? 'auto' : 0,
-    opacity: isDetailOpen ? 1 : 0,
+  const transition = useTransition(isDetailOpen, {
+    // height: isDetailOpen ? 'auto' : 0,
+    from: {
+      opacity: 0,
+      config: { duration: 1000 },
+    },
+    enter: {
+      opacity: 1,
+      config: { duration: 1000 },
+    },
+    // leave: {
+    //   opacity: 0,
+    //   config: { duration: 1000 },
+    // },
   })
   const renderDetail = () => {
     if (place === undefined) return <Loading />
     return (
-      <animated.section
-        className="p-3 rounded-xl bg-white bg-opacity-30"
-        style={animateStyle}
-      >
-        <h1>{place.title}</h1>
-        <p>{place.addr1}</p>
-        <p>{place.addr2}</p>
-      </animated.section>
+      <>
+        {transition((style) => (
+          <animated.section
+            className="p-3 rounded-xl bg-white bg-opacity-30"
+            style={style}
+          >
+            <h1>{place.title}</h1>
+            <p>{place.addr1}</p>
+            <p>{place.addr2}</p>
+          </animated.section>
+        ))}
+      </>
     )
   }
   return (
