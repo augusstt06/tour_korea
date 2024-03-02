@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 import Detail from '../detail/Detail'
 
-import usePlaceStore from '@/app/_store'
+import usePlaceStore from '@/app/_store/place'
 import { type CarouselProps } from '@/app/_type'
 
 export default function Carousel(props: CarouselProps) {

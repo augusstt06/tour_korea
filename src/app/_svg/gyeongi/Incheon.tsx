@@ -1,10 +1,10 @@
-import usePlaceStore from '@/app/_store'
+import usePlaceStore from '@/app/_store/place'
 export default function Incheon() {
   const { detailPlace } = usePlaceStore()
   const checkCurrentPlace = (id: string) => {
     if (id === detailPlace)
       return {
-        fill: '#663399',
+        fill: '#e2d4ea',
       }
   }
   return (

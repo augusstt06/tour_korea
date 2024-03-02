@@ -6,18 +6,25 @@ import { Outfit } from 'next/font/google'
 
 import './globals.css'
 import Map from './_component/map/Map'
+import useMapStateStore from './_store/map'
 
 const outfit = Outfit({
   subsets: ['latin'],
   weight: '500',
 })
 export default function Home() {
+  const { isMapOpen, setIsMapOpen } = useMapStateStore()
   const [showMap, setShowMap] = useState(false)
   const handleOverlayClick = () => {
     setShowMap(true)
+    setIsMapOpen(true)
   }
+
   return (
-    <main id="main" className="h-screen">
+    <main
+      id="main"
+      className={`h-screen ${isMapOpen ? 'backdrop-blur-md' : ''}`}
+    >
       {showMap ? (
         <Map />
       ) : (
