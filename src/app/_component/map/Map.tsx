@@ -101,7 +101,7 @@ export default function Map() {
                   <p className="text-xl">{currentPlaceDo}</p>
                   <IoClose
                     id="reset"
-                    className="font-bold w-5 h-5 cursor-pointer transition ease-in-out duration-500"
+                    className="w-5 h-5 cursor-pointer transition ease-in-out duration-500 bg-white rounded-xl bg-opacity-50 hover:rotate-90"
                     onClick={() => {
                       setCurrentPlaceDo('')
                       setIsOpenDetail(false)
