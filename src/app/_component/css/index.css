@@ -1,10 +1,10 @@
 /* Map.tsx */
 
-#reset:hover {
-  transform: rotate(90deg);
-}
+/* #reset:hover { */
+/* transform: rotate(90deg); */
+/* } */
 
-@keyframes mapEffect {
+/* @keyframes mapEffect {
   0% {
     opacity: 0;
   }
@@ -22,7 +22,11 @@
 #map-description {
   animation: 0.7s ease-in-out mapEffect;
 }
-
+#detail-map {
+  background-image: url('/tower.jpg');
+  background-size: cover;
+  background-position: center z-index-1;
+} */
 /* Detail.tsx */
 
 summary {

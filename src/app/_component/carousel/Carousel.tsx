@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 import Detail from '../detail/Detail'
 
-import usePlaceStore from '@/app/_store'
+import usePlaceStore from '@/app/_store/place'
 import { type CarouselProps } from '@/app/_type'
 
 export default function Carousel(props: CarouselProps) {
@@ -16,9 +16,6 @@ export default function Carousel(props: CarouselProps) {
   const imgList =
     place !== undefined ? place.map((data) => data.firstimage) : []
   const [currentSlide, setCurrentSlide] = useState<number>(0)
-  // const goToSlide = (slideIndex: number) => {
-  //   setCurrentSlide(slideIndex)
-  // }
 
   const goToPrevSlide = () => {
     setCurrentSlide((prevSlide) =>
@@ -59,20 +56,6 @@ export default function Carousel(props: CarouselProps) {
           ))}
         </div>
 
-        {/* <div className=" absolute z-30 hidden md:flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse bg-red-100 bg-opacity-30 p-3 rounded-xl">
-          {place.map((_, index) => (
-            <button
-              key={index}
-              type="button"
-              className={`w-3 h-3 rounded-full ${index === currentSlide ? 'bg-gray-900' : 'bg-gray-300'}`}
-              aria-current={index === currentSlide ? 'true' : 'false'}
-              aria-label={`Slide ${index + 1}`}
-              onClick={() => {
-                goToSlide(index)
-              }}
-            ></button>
-          ))}
-        </div> */}
         <button
           type="button"
           className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
