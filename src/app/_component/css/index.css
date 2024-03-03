@@ -27,7 +27,25 @@
   background-size: cover;
   background-position: center z-index-1;
 } */
+
 /* Detail.tsx */
+
+#detail-map {
+  background-image: url('/tower.jpg');
+  background-size: cover;
+  background-position: center z-index-1;
+}
+#detail-map::before {
+  content: '';
+  opacity: 0.3;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: #000;
+  z-index: -1;
+}
 
 summary {
   list-style-type: '📌 ';

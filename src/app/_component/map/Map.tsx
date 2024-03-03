@@ -14,7 +14,11 @@ import DetailMap from './DetailMap'
 
 import { API_KEY, JSON, TOUR, WIN } from '@/app/_constant'
 import { API_ROUTE_KEYWORD } from '@/app/_constant/routes'
-import { type Item } from '@/app/_type'
+import {
+  type DetailMapComponentProps,
+  type Item,
+  type MainMapComponentProps,
+} from '@/app/_type'
 import { moduleGetFetch } from '@/app/_utils/fetch'
 
 const poor = Poor_Story({
@@ -28,17 +32,6 @@ export default function Map() {
     setIsOpenDetail(true)
     setCurrentPlaceDo(place)
   }
-  const transition = useTransition(isOpenDetail, {
-    from: {
-      opacity: 0,
-    },
-    enter: {
-      opacity: 1,
-    },
-    leave: {
-      opacity: 0,
-    },
-  })
 
   const [place, setPlace] = useState<Item>([])
 
@@ -76,43 +69,91 @@ export default function Map() {
 
   return (
     <>
+      <MainMapComponent clickPlace={clickPlace} isOpenDetail={isOpenDetail} />
+      {!isOpenDetail ? null : (
+        <DetailMapComponent
+          isOpenDetail={isOpenDetail}
+          setIsOpenDetail={setIsOpenDetail}
+          currentPlaceDo={currentPlaceDo}
+          place={place}
+        />
+      )}
+    </>
+  )
+}
+
+function MainMapComponent(props: MainMapComponentProps) {
+  const { isOpenDetail, clickPlace } = props
+  const transition = useTransition(isOpenDetail, {
+    from: {
+      opacity: 0,
+    },
+    enter: {
+      opacity: 1,
+    },
+    leave: {
+      opacity: 0,
+    },
+  })
+  return (
+    <>
       {transition((style) => (
-        <>
-          {!isOpenDetail ? (
-            <animated.section
-              style={style}
-              className="flex justify-center items-center h-screen"
+        <animated.section
+          style={style}
+          className="flex justify-center items-center h-screen"
+        >
+          <KoreaSvg clickPlace={clickPlace} />
+        </animated.section>
+      ))}
+    </>
+  )
+}
+
+function DetailMapComponent(props: DetailMapComponentProps) {
+  const { isOpenDetail, currentPlaceDo, place, setIsOpenDetail } = props
+  const transition = useTransition(isOpenDetail, {
+    from: {
+      opacity: 0,
+    },
+    enter: {
+      opacity: 1,
+    },
+    leave: {
+      opacity: 0,
+    },
+  })
+
+  return (
+    <>
+      {transition((style) => (
+        <div className="absolute transform top-1/2 -translate-y-1/2 -translate-x-1/2 left-1/2 w-full">
+          <animated.section
+            style={style}
+            className="flex justify-start items-center h-screen backdrop-blur-md"
+            id="detail-map"
+          >
+            <div className="lg:inline hidden relative ">
+              <DetailMap currentPlaceDo={currentPlaceDo} />
+            </div>
+            <div
+              id="map-description"
+              className={`bg-white bg-opacity-20 shadow-3xl absolute lg:top-36 top-1/2 lg:right-16 right-1/2 transform lg:transform-none lg:translate-x-0 translate-x-1/2 -translate-y-1/2 lg:w-1/3 md:w-1/2 w-2/3 rounded-xl text-center text-white ${poor.className}`}
             >
-              <KoreaSvg clickPlace={clickPlace} />
-            </animated.section>
-          ) : (
-            <animated.section
-              style={style}
-              className="flex justify-start items-center h-screen"
-            >
-              <div className="lg:inline hidden relative ">
-                <DetailMap currentPlaceDo={currentPlaceDo} />
+              <div className="flex items-center justify-center space-x-4 p-3">
+                <p className="text-xl">{currentPlaceDo}</p>
+                <IoClose
+                  id="reset"
+                  className="w-5 h-5 cursor-pointer transition ease-in-out duration-500 bg-white rounded-xl bg-opacity-50 hover:rotate-90"
+                  onClick={() => {
+                    // setCurrentPlaceDo('')
+                    setIsOpenDetail(false)
+                  }}
+                />
               </div>
-              <div
-                id="map-description"
-                className={`bg-white bg-opacity-20 shadow-3xl absolute lg:top-36 top-1/2 lg:right-16 right-1/2 transform lg:transform-none lg:translate-x-0 translate-x-1/2 -translate-y-1/2 lg:w-1/3 md:w-1/2 w-2/3 rounded-xl text-center text-white ${poor.className}`}
-              >
-                <div className="flex items-center justify-center space-x-4 p-3">
-                  <p className="text-xl">{currentPlaceDo}</p>
-                  <IoClose
-                    id="reset"
-                    className="w-5 h-5 cursor-pointer transition ease-in-out duration-500 bg-white rounded-xl bg-opacity-50 hover:rotate-90"
-                    onClick={() => {
-                      setCurrentPlaceDo('')
-                      setIsOpenDetail(false)
-                    }}
-                  />
-                </div>
-                <Carousel place={place} />
-              </div>
-            </animated.section>
-          )}
-        </>
+              <Carousel place={place} />
+            </div>
+          </animated.section>
+        </div>
       ))}
     </>
   )
