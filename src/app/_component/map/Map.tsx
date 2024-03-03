@@ -69,8 +69,9 @@ export default function Map() {
 
   return (
     <>
-      <MainMapComponent clickPlace={clickPlace} isOpenDetail={isOpenDetail} />
-      {!isOpenDetail ? null : (
+      {!isOpenDetail ? (
+        <MainMapComponent clickPlace={clickPlace} isOpenDetail={isOpenDetail} />
+      ) : (
         <DetailMapComponent
           isOpenDetail={isOpenDetail}
           setIsOpenDetail={setIsOpenDetail}
