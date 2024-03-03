@@ -1,3 +1,5 @@
+import { type Dispatch, type SetStateAction } from 'react'
+
 export type ModuleGetFetchProps = {
   params: Record<string, string | number>
   fetchUrl?: string
@@ -76,4 +78,15 @@ export type DetailProps = {
     tel: string
     title: string
   }
+}
+
+export type MainMapComponentProps = {
+  isOpenDetail: boolean
+  clickPlace: (place: string) => void
+}
+export type DetailMapComponentProps = {
+  isOpenDetail: boolean
+  currentPlaceDo: string
+  setIsOpenDetail: Dispatch<SetStateAction<boolean>>
+  place: Item
 }
