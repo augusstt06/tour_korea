@@ -133,12 +133,12 @@ function DetailMapComponent(props: DetailMapComponentProps) {
             className="flex justify-start items-center h-screen backdrop-blur-md"
             id="detail-map"
           >
-            <div className="lg:inline hidden relative ">
+            <div className="absolute lg:left-1/4 sm:top-1/3 top-2/3 sm:left-10 transform left-1/2 sm:translate-x-0 -translate-x-1/2 h-screen">
               <DetailMap currentPlaceDo={currentPlaceDo} />
             </div>
             <div
               id="map-description"
-              className={`bg-white bg-opacity-20 shadow-3xl absolute lg:top-36 top-1/2 lg:right-16 right-1/2 transform lg:transform-none lg:translate-x-0 translate-x-1/2 -translate-y-1/2 lg:w-1/3 md:w-1/2 w-2/3 rounded-xl text-center text-white ${poor.className}`}
+              className={`bg-white bg-opacity-20 shadow-3xl absolute lg:top-36 sm:top-1/2 top-1/3 lg:right-16 sm:right-1/4 right-1/2 transform lg:transform-none lg:translate-x-0 translate-x-1/2 -translate-y-1/2 sm:w-1/3 w-2/3 rounded-xl text-center text-white ${poor.className}`}
             >
               <div className="flex items-center justify-center space-x-4 p-3">
                 <p className="text-xl">{currentPlaceDo}</p>
@@ -146,7 +146,6 @@ function DetailMapComponent(props: DetailMapComponentProps) {
                   id="reset"
                   className="w-5 h-5 cursor-pointer transition ease-in-out duration-500 bg-white rounded-xl bg-opacity-50 hover:rotate-90"
                   onClick={() => {
-                    // setCurrentPlaceDo('')
                     setIsOpenDetail(false)
                   }}
                 />
